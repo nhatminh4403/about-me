@@ -1,3 +1,184 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import 'tailwindcss';
+
+@theme {
+  --color-primary: #3b82f6;
+  --color-secondary: #10b981;
+  --color-glass-bg: rgba(255, 255, 255, 0.03);
+  --color-glass-border: rgba(255, 255, 255, 0.08);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    background-color: #0b0f19;
+    color: #f3f4f6;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* Custom glassmorphism helpers */
+  .glass-panel {
+    background: rgba(13, 20, 38, 0.45);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 
+      inset 0 1px 0 rgba(255, 255, 255, 0.05),
+      0 20px 40px -15px rgba(0, 0, 0, 0.3);
+  }
+
+  .glass-card {
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow: 
+      inset 0 1px 0 rgba(255, 255, 255, 0.05),
+      0 10px 30px -10px rgba(0, 0, 0, 0.25);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .glass-card:hover {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(59, 130, 246, 0.2);
+    box-shadow: 
+      inset 0 1px 0 rgba(255, 255, 255, 0.08),
+      0 25px 45px -15px rgba(0, 0, 0, 0.4);
+    transform: translateY(-2px);
+  }
+
+  /* Gradient border card (for featured items like main Facebook) */
+  .glass-card-gradient-border {
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid transparent;
+    background-clip: padding-box;
+    position: relative;
+    box-shadow: 
+      inset 0 1px 0 rgba(255, 255, 255, 0.05),
+      0 10px 30px -10px rgba(59, 130, 246, 0.15);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .glass-card-gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, #3b82f6, #10b981);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  .glass-card-gradient-border:hover {
+    background: rgba(255, 255, 255, 0.04);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.1),
+      0 0 28px -5px rgba(59, 130, 246, 0.35),
+      0 20px 40px -15px rgba(0, 0, 0, 0.4);
+    transform: translateY(-2px);
+  }
+
+  /* Section glow accent — subtle radial behind key content panels */
+  .section-glow-primary {
+    position: relative;
+  }
+  .section-glow-primary::before {
+    content: '';
+    position: absolute;
+    inset: -40px;
+    border-radius: 50%;
+    background: radial-gradient(ellipse at center, rgba(59, 130, 246, 0.08) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .section-glow-secondary {
+    position: relative;
+  }
+  .section-glow-secondary::before {
+    content: '';
+    position: absolute;
+    inset: -40px;
+    border-radius: 50%;
+    background: radial-gradient(ellipse at center, rgba(16, 185, 129, 0.08) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Header ambient underglow */
+  .header-glow::after {
+    content: '';
+    position: absolute;
+    bottom: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 20px;
+    background: radial-gradient(ellipse at center, rgba(59, 130, 246, 0.25) 0%, transparent 80%);
+    filter: blur(8px);
+    pointer-events: none;
+  }
+
+  .text-glow-primary {
+    text-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+  }
+
+  .text-glow-secondary {
+    text-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+  }
+
+  /* Demo badge pill */
+  .demo-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 1px 6px;
+    border-radius: 999px;
+    background: rgba(59, 130, 246, 0.12);
+    border: 1px solid rgba(59, 130, 246, 0.25);
+    color: #93c5fd;
+    line-height: 1.4;
+  }
+}
+
+/* Custom continuous background blobs animation */
+@keyframes float-blob {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.95);
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}
+
+.animate-blob-1 {
+  animation: float-blob 12s infinite alternate ease-in-out;
+}
+
+.animate-blob-2 {
+  animation: float-blob 16s infinite alternate-reverse ease-in-out;
+}
+
+.animate-blob-3 {
+  animation: float-blob 20s infinite alternate ease-in-out;
+}

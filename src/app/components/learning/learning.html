@@ -1,0 +1,92 @@
+<!-- SECTION 3: WHAT I'VE LEARNT & LEARNING (Bento-Grid Dashboard) -->
+<section id="learning" class="relative z-10 mb-28">
+  <div class="flex flex-col gap-4 mb-12">
+    <div class="text-xs font-bold text-secondary uppercase tracking-widest">Skill Frameworks</div>
+    <h2 class="text-3xl md:text-5xl font-bold tracking-tight text-white leading-none">
+      Acquired &
+      <span class="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent"
+        >Evolving</span
+      >
+      Stacks
+    </h2>
+    <p class="text-gray-400 max-w-[65ch]">
+      A live mapping of theoretical knowledge, battle-tested production frameworks, and concepts I
+      am currently researching.
+    </p>
+  </div>
+
+  <!-- Bento Grid (Apple-Style Grouping) -->
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+    <!-- Box 1: What I've Learnt (Left Big Container) -->
+    <div class="lg:col-span-7 glass-panel rounded-3xl p-6 sm:p-8 space-y-6">
+      <h3 class="text-xl font-bold text-white flex items-center gap-2">
+        <span class="w-2.5 h-2.5 rounded-full bg-primary animate-pulse"></span>
+        What I've learnt (Proficient and/or good to do)
+      </h3>
+      <p class="text-xs text-gray-400 leading-relaxed">
+        Technologies and patterns I have confidence
+      </p>
+
+      <div class="space-y-4 pt-2">
+        @for (skill of skills(); track skill.name) {
+          @if (skill.category === 'learnt') {
+            <div class="space-y-1.5">
+              <div class="flex items-center justify-between text-xs font-medium text-gray-300">
+                <span>{{ skill.name }}</span>
+                <span class="text-gray-500">{{ skill.level }}%</span>
+              </div>
+              <div class="w-full h-1.5 rounded-full bg-white/5 overflow-hidden">
+                <div
+                  [class]="'h-full rounded-full bg-gradient-to-r transition-all duration-1000 ' + skill.iconColor"
+                  [style.width.%]="skill.level"
+                ></div>
+              </div>
+            </div>
+          }
+        }
+      </div>
+    </div>
+
+    <!-- Box 2: What I'm Learning (Right Asymmetric Box) -->
+    <div
+      class="lg:col-span-5 glass-panel rounded-3xl p-6 sm:p-8 flex flex-col justify-between gap-6"
+    >
+      <div class="space-y-4">
+        <h3 class="text-xl font-bold text-white flex items-center gap-2">
+          <span class="w-2.5 h-2.5 rounded-full bg-secondary animate-pulse"></span>
+          Under Active Research / Learning
+        </h3>
+        <p class="text-xs text-gray-400 leading-relaxed">
+          New compiler semantics, parallel algorithms, and deep systems integration I study daily to
+          push the envelope of web capabilities.
+        </p>
+
+        <div class="space-y-4 pt-2">
+          @for (skill of skills(); track skill.name) {
+            @if (skill.category === 'learning') {
+              <div class="space-y-1.5">
+                <div class="flex items-center justify-between text-xs font-medium text-gray-300">
+                  <span>{{ skill.name }}</span>
+                  <span class="text-secondary">{{ skill.level }}%</span>
+                </div>
+                <div class="w-full h-1.5 rounded-full bg-white/5 overflow-hidden">
+                  <div
+                    [class]="'h-full rounded-full bg-gradient-to-r transition-all duration-1000 ' + skill.iconColor"
+                    [style.width.%]="skill.level"
+                  ></div>
+                </div>
+              </div>
+            }
+          }
+        </div>
+      </div>
+
+      <div
+        class="p-4 rounded-2xl glass-card bg-secondary/5 border-secondary/10 text-xs text-secondary leading-relaxed"
+      >
+        <strong>Next Goal:</strong> Complete my neural inference runtime rewrite to fully support
+        WebAssembly thread sharing.
+      </div>
+    </div>
+  </div>
+</section>
