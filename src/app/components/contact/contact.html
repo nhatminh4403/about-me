@@ -9,16 +9,24 @@
     </div>
 
     }
-
-    <div class="text-center space-y-4 mb-10">
-      <div class="text-xs font-bold text-secondary uppercase tracking-widest">Connect</div>
-      <h2 class="text-3xl sm:text-4xl font-bold text-white leading-none tracking-tight">
-        Digital Footprint
-      </h2>
-      <p class="text-gray-400 text-sm max-w-[50ch] mx-auto">
-        Reach out directly via email or find me across core social platforms and engineering
-        networks.
-      </p>
+    <!-- Contact header  section -->
+    <div class="flex flex-col md:flex-row items-center justify-center gap-6 mb-10 text-center md:text-left">
+      <div class="relative group">
+        <!-- Glow effect behind image -->
+        <div class="absolute -inset-0.5 bg-gradient-to-r from-primary to-secondary rounded-full blur-md opacity-50 group-hover:opacity-75 transition duration-300"></div>
+        <img src="Minh_image.jpg" alt="Pham Tran Nhat Minh" 
+             class="relative w-20 h-20 sm:w-24 sm:h-24 rounded-2xl object-cover border border-white/10 shadow-xl transition-transform duration-300 group-hover:scale-105">
+      </div>
+      <div class="space-y-2">
+        <div class="text-xs font-bold text-secondary uppercase tracking-widest">Connect</div>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white leading-none tracking-tight">
+          Digital Footprint
+        </h2>
+        <p class="text-gray-400 text-sm max-w-[50ch]">
+          Reach out directly via email or find me across core social platforms and engineering
+          networks.
+        </p>
+      </div>
     </div>
 
     <!-- Social Links Grid -->
@@ -112,7 +120,7 @@
         </div>
         <div class="text-left">
           <div class="text-sm font-semibold text-white font-mono">{{email.url}}</div>
-          <div class="text-xs text-gray-500">nhấn để copy url</div>
+          <div class="text-xs text-gray-500">click to copy my email url</div>
         </div>
       </button>
 
@@ -129,7 +137,7 @@
         <div>
           <div class="text-sm font-semibold text-white font-mono">Instagram/{{ig.name}}</div>
           <div class="text-xs text-gray-500 flex items-center gap-1">
-            &#64;follow for a cookie
+            follow for a cookie
           </div>
         </div>
       </a>

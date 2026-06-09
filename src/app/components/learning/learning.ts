@@ -51,6 +51,7 @@ export class Learning {
       level: 41,
       category: 'learning',
       iconColor: 'from-[#E83090] to-[#3A82F6]',
+      additionalInfo:"I might drop this."
     },
     {
       name: 'Azure Cloud (App Services) ',
@@ -65,4 +66,5 @@ interface Skill {
   level: number;
   category: 'learnt' | 'learning';
   iconColor: string;
+  additionalInfo?: string;
 }
