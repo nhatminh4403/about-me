@@ -14,7 +14,7 @@
 
     <!-- Desktop Navigation -->
     <nav class="hidden md:flex items-center gap-8">
-      <a href="#overview"
+      <a href="#overview" (click)="$event.preventDefault(); scrollToTop()"
         class="text-sm font-medium text-gray-400 hover:text-white hover:text-glow-primary transition-all duration-300">Overview</a>
       <a href="#repos"
         class="text-sm font-medium text-gray-400 hover:text-white hover:text-glow-primary transition-all duration-300">Repositories</a>
@@ -42,7 +42,7 @@
   <!-- Mobile Dropdown Menu -->
   @if (menuOpen()) {
   <div class="md:hidden mt-2 p-4 rounded-2xl glass-panel flex flex-col gap-4 animate-fadeIn">
-    <a href="#overview" (click)="toggleMenu()"
+    <a href="#overview" (click)="$event.preventDefault(); scrollToTop(); toggleMenu()"
       class="text-base font-medium text-gray-300 hover:text-white px-2 py-1.5 rounded-lg hover:bg-white/5 transition-all">Overview</a>
     <a href="#repos" (click)="toggleMenu()"
       class="text-base font-medium text-gray-300 hover:text-white px-2 py-1.5 rounded-lg hover:bg-white/5 transition-all">Repositories</a>

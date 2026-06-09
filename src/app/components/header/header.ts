@@ -12,4 +12,8 @@ export class Header {
   protected toggleMenu(): void {
     this.menuOpen.update((open) => !open);
   }
+
+  protected scrollToTop(): void {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 }
