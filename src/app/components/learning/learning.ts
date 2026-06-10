@@ -11,31 +11,31 @@ export class Learning {
     // What I've learnt
     {
       name: 'ASP.NET Core MVC / Web API',
-      level: 85,
+      level: 80,
       category: 'learnt',
       iconColor: 'from-[#512bd4] to-[#7c3aed]',
     },
     {
       name: 'Angular 21',
-      level: 30,
+      level: 32,
       category: 'learning',
       iconColor: 'from-[#dd0031] to-[#c3002f]',
     },
     {
       name: 'Entity Framework Core',
-      level: 80,
+      level: 75,
       category: 'learnt',
       iconColor: 'from-[#512bd4] to-[#9333ea]',
     },
     {
       name: 'TypeScript & JavaScript',
-      level: 45,
+      level: 40,
       category: 'learning',
       iconColor: 'from-[#3178c6] to-[#007acc]',
     },
     {
       name: 'SQL Server',
-      level: 75,
+      level: 70,
       category: 'learnt',
       iconColor: 'from-[#8B0000] to-[#0072c6]',
     },
@@ -48,14 +48,14 @@ export class Learning {
     // What I'm learning
     {
       name: 'ABP Framework',
-      level: 41,
+      level: 36,
       category: 'learning',
       iconColor: 'from-[#E83090] to-[#3A82F6]',
       additionalInfo:"I might drop this."
     },
     {
       name: 'Azure Cloud (App Services) ',
-      level: 38,
+      level: 33,
       category: 'learning',
       iconColor: 'from-[#0078d4] to-[#0062b1]',
     },

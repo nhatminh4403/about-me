@@ -37,7 +37,7 @@ export class Repositories {
       tags: ['ABP Framework', '.NET', 'ASP.NET Core API'],
       links: [
         {
-          label: 'Solution',
+          label: 'Backend',
           url: 'https://github.com/nhatminh4403/MealPlannerAPI.BE',
         },
       ],
@@ -64,10 +64,10 @@ export class Repositories {
       language: '.NET 10',
       langColor: '#14b8a6',
       link: 'https://github.com/nhatminh4403/Acme.ProductSelling',
-      tags: ['E-commerce', 'Payment', 'AI Assistant','Razor Pages'],
+      tags: ['E-commerce', 'ABP Framework', 'AI Assistant','Razor Pages'],
       links: [
         {
-          label: 'Source',
+          label: 'ABP Framework',
           url: 'https://github.com/nhatminh4403/Acme.ProductSelling',
         },
       ],
@@ -81,12 +81,7 @@ export class Repositories {
       link: 'https://github.com/CyberNinjutsu/Hackathon2025-FE',
       tags: ['Solana', 'Next.js', 'AI'],
       teamSize: 5,
-      links: [
-        {
-          label: 'Source',
-          url: 'https://github.com/CyberNinjutsu/Hackathon2025-FE',
-        },
-      ],
+      additionalInfo:"Achieved Top 100 Finalists in HDBank Hackathon - Unleash the Power of AI & Blockchain"
     },
   ]);
 }
@@ -98,8 +93,9 @@ interface Repo {
   langColor: string;
   link: string;
   tags: string[];
-  links: RepoLink[];
+  links?: RepoLink[];
   teamSize?: number;
+  additionalInfo?: string;
 }
 
 interface RepoLink {

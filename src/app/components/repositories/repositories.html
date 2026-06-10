@@ -19,7 +19,9 @@
       <div class="glass-card rounded-3xl p-6 sm:p-8 flex flex-col justify-between group h-full">
         <div>
           <div class="flex items-start justify-between gap-4 mb-4">
-            <div class="flex items-center gap-2 text-white font-bold text-lg font-mono tracking-tight group-hover:text-primary transition-colors">
+            <div
+              class="flex items-center gap-2 text-white font-bold text-lg font-mono tracking-tight group-hover:text-primary transition-colors"
+            >
               <svg
                 class="w-5 h-5 text-primary shrink-0"
                 fill="none"
@@ -45,7 +47,9 @@
                 {{ repo.language }}
               </span>
               @if (repo.teamSize) {
-                <span class="text-xs font-semibold px-2.5 py-1 rounded-full glass-card text-gray-300 whitespace-nowrap">
+                <span
+                  class="text-xs font-semibold px-2.5 py-1 rounded-full glass-card text-gray-300 whitespace-nowrap"
+                >
                   Team of {{ repo.teamSize }}
                 </span>
               }
@@ -58,7 +62,9 @@
 
           <div class="flex flex-wrap gap-2">
             @for (tag of repo.tags; track tag) {
-              <span class="text-[10px] uppercase tracking-[0.25em] px-3 py-1.5 rounded-full border border-white/10 bg-white/5 text-gray-300">
+              <span
+                class="text-[10px] uppercase tracking-[0.25em] px-3 py-1.5 rounded-full border border-white/10 bg-white/5 text-gray-300"
+              >
                 {{ tag }}
               </span>
             }
@@ -66,16 +72,26 @@
         </div>
 
         <div class="flex flex-wrap items-center gap-2 mt-6 pt-4 border-t border-white/5">
-          @for (item of repo.links; track item.label) {
-            <a
-              [href]="item.url"
-              target="_blank"
-              rel="noreferrer noopener"
-              class="text-[11px] font-bold px-3 py-1.5 rounded-full bg-secondary/15 text-secondary border border-secondary/25 font-mono transition-colors hover:bg-secondary/20"
+          @if (!repo.additionalInfo) {
+            @for (item of repo.links; track item.label) {
+              <a
+                [href]="item.url"
+                target="_blank"
+                rel="noreferrer noopener"
+                class="text-[11px] font-bold px-3 py-1.5 rounded-full bg-secondary/15 text-secondary border border-secondary/25 font-mono transition-colors hover:bg-secondary/20"
+              >
+                {{ item.label }}
+              </a>
+            }
+          } @else {
+            <div
+              class="bg-[linear-gradient(to_right,var(--color-blue-400),var(--color-white),var(--color-gray-300),var(--color-red-600),var(--color-red-700))] 
+              bg-clip-text text-transparent font-bold  max-w-[80%] "
             >
-              {{ item.label }}
-            </a>
+              {{ repo.additionalInfo }}
+            </div>
           }
+
           <a
             [href]="repo.link"
             target="_blank"
